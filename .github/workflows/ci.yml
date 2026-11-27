@@ -1,0 +1,43 @@
+
+name: CI - VentaFacil
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integracion:
+    name: Integracion continua
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener codigo fuente
+        uses: actions/checkout@v6
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar pruebas
+        run: npm test
+
+      - name: Construir aplicativo
+        run: npm run build
