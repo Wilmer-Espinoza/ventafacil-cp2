@@ -41,3 +41,9 @@ jobs:
 
       - name: Construir aplicativo
         run: npm run build
+
+      - name: Verificar archivos de construccion
+        run: |
+          test -f dist/package.json
+          test -d dist/public
+          test -d dist/src
