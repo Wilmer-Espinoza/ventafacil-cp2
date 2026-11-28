@@ -1,6 +1,6 @@
 // Lógica de negocio pura (sin HTTP): fácil de probar con pruebas unitarias.
 
-const IVA = 0.12; // IVA vigente en Ecuador
+const IVA = 0.15; // IVA vigente en Ecuador
 
 function redondear(valor) {
   return Math.round(valor * 100) / 100;
