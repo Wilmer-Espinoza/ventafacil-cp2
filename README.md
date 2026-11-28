@@ -71,6 +71,31 @@ ventafacil/
 | GET/POST | `/api/descuentos` | descuentos |
 | GET | `/api/exportar/ventas.csv` | exportacion |
 
+## Alojamiento local y variables de entorno para CD
+
+Responsable: Hasqui Ortega Gabriel Leonardo.
+
+El servidor utiliza `HOST` para seleccionar la interfaz de red y `PORT` para
+seleccionar el puerto. Por defecto escucha en `127.0.0.1:3000`, en el equipo local.
+`.env.example` documenta los valores de referencia; `npm start` no carga ese archivo
+automaticamente. Las variables se establecen en la terminal antes del arranque.
+
+En CMD de Windows:
+
+```cmd
+set HOST=127.0.0.1
+set PORT=3000
+set NODE_ENV=production
+npm start
+```
+
+Comprobacion de la interfaz: `http://127.0.0.1:3000/`.
+Comprobacion de salud: `http://127.0.0.1:3000/api/salud`.
+Para detener el servidor desde esa terminal, presionar `Ctrl+C`.
+
+Esta configuracion prepara el alojamiento local. El flujo de despliegue automatico
+condicionado a pruebas se implementa en el siguiente paso.
+
 ## Equipo
 
 - Santillán Cabrera Karla Nohelia
